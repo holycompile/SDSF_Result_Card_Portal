@@ -1,7 +1,15 @@
 # SDSF Result Card Portal 🎓
+### Official Result Portal for SDSF, Devi Ahilya Vishwavidyalaya (DAVV)
 
+> **© All Rights Reserved** — School of Data Science and Forecasting (SDSF), Devi Ahilya Vishwavidyalaya, Indore.  
 > **Backend Developer**: Joyobrata Das ([@holycompile](https://github.com/holycompile))  
 > **Frontend Designer**: Gemini (*lol xd — being 100% honest with my learning journey!*) 
+
+---
+
+> [!IMPORTANT]
+> **LEGAL & EDUCATIONAL USE NOTICE**:  
+> Developers, students, and contributors are strictly requested to reference and use this project for **educational and learning purposes only**. Any unauthorized reproduction, unauthorized distribution, production tampering, or mischievous activity in the future is strictly prohibited and punishable under university disciplinary regulations and the **Information Technology Act, 2000**.
 
 ---
 
