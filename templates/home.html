@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>SDSF Result Card Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    Home Page 
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='departmentlogo_transparent.png') }}" alt="SDSF Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-lg font-bold text-gray-900 leading-tight">SDSF Result Card Portal</h1>
+                    <p class="text-xs text-gray-500">School of Data Science and Forecasting</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{{url_for('admin')}}" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition">Admin Login</a>
+                <img src="{{ url_for('static', filename='davvLogo.png') }}" alt="DAVV Logo" class="h-12 w-auto object-contain">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex items-center justify-center">
+        In Home 
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
+            <p>&copy; 2026 School of Data Science and Forecasting, DAVV. All rights reserved.</p>
+            <p class="mt-2 sm:mt-0">Result Card Portal</p>
+        </div>
+    </footer>
+
 </body>
 </html>
