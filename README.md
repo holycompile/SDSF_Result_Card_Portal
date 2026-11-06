@@ -1,7 +1,7 @@
 # SDSF Result Card Portal 🎓
 
 > **Backend Developer**: Joyobrata Das ([@holycompile](https://github.com/holycompile))  
-> **Frontend Designer**: Gemini (*lol xd — being 100% honest with my learning journey!*) 🤖🎨
+> **Frontend Designer**: Gemini (*lol xd — being 100% honest with my learning journey!*) 
 
 ---
 
@@ -9,7 +9,7 @@ An academic portal built for the **School of Data Science and Forecasting (SDSF)
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 The **SDSF Result Card Portal** streamlines student record management and grade-sheet lookups. The backend handles data persistence, schema creation, duplicate detection, and request routing with Python and SQLite, while the UI is styled cleanly with Tailwind CSS and powered by Jinja2 template inheritance.
 
