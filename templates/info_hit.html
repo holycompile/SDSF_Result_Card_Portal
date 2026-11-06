@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success Page</title>
-</head>
-<body>
-    {% if msg=="success" %}
-        <h1> Student registered Successfully</h1>
-        <a href="{{ url_for('admin')}}">Return Home</a>
-    {% else %}
-        <h1> Student already exists</h1>
-    {% endif %}
-</body>
-</html>
+{% extends "admin.html" %}
+
+{% block content %}
+<div class="flex items-center justify-center py-12">
+    <div class="w-full max-w-md bg-white border border-gray-200 rounded p-6 text-center shadow-sm">
+        {% if msg == "success" %}
+            <div class="text-green-600 text-4xl mb-2">✓</div>
+            <h1 class="text-xl font-semibold text-gray-900 mb-2">Student Registered Successfully</h1>
+            <p class="text-sm text-gray-500 mb-6">The student record has been added to the database.</p>
+        {% else %}
+            <div class="text-red-500 text-4xl mb-2">✕</div>
+            <h1 class="text-xl font-semibold text-gray-900 mb-2">Student Already Exists</h1>
+            <p class="text-sm text-gray-500 mb-6">A record with this Enrollment Number already exists.</p>
+        {% endif %}
+
+        <div class="flex justify-center space-x-3">
+            <a href="{{ url_for('insert_student') }}" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded transition">Insert Another Student</a>
+            <a href="{{ url_for('admin') }}" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded transition">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
