@@ -23,7 +23,7 @@ The **SDSF Result Card Portal** streamlines student record management and grade-
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: Python 3, Flask
 - **Database**: SQLite3
@@ -32,7 +32,7 @@ The **SDSF Result Card Portal** streamlines student record management and grade-
 
 ---
 
-## ✨ Features Implemented So Far
+## Features Implemented So Far
 
 ### 1. Unified Portal Branding & Navigation
 - Official DAVV and transparent SDSF department logos integrated via Flask static serving.
@@ -95,7 +95,7 @@ SDSF_Result_Card_Portal/
 
 ---
 
-## 🏃 Running the Project Locally
+## Running the Project Locally
 
 1. **Clone the repository**:
    ```bash
@@ -120,7 +120,7 @@ SDSF_Result_Card_Portal/
 
 ---
 
-## 📌 Upcoming Milestones
+## Upcoming Milestones
 - [ ] Student marks & subject-wise grade entry form.
 - [ ] Dynamic result card generation and PDF download.
 - [ ] Public result lookup query integration by Roll Number and Semester.
