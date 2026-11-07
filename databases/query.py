@@ -21,20 +21,20 @@ def create_table():
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS studenttable (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    enrollment_no VARCHAR(64) UNIQUE,
-                    name VARCHAR(255),
-                    course VARCHAR(255),
-                    start_batch VARCHAR(32),
-                    end_batch VARCHAR(32),
-                    sem VARCHAR(32),
-                    rollno VARCHAR(64),
-                    exam VARCHAR(64),
-                    father VARCHAR(255),
-                    mother VARCHAR(255),
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            cursor.execute(f"""-- sql
+                create table if not exists studenttable (
+                    id int auto_increment primary key,
+                    enrollment_no varchar(64) unique,
+                    name varchar(255),
+                    course varchar(255),
+                    start_batch varchar(32),
+                    end_batch varchar(32),
+                    sem varchar(32),
+                    rollno varchar(64),
+                    exam varchar(64),
+                    father varchar(255),
+                    mother varchar(255),
+                    created_at timestamp default current_timestamp
                 );
             """)
         connection.commit()
@@ -46,10 +46,11 @@ def checking_enroll_no(enroll_no):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            cursor.execute(
-                "SELECT EXISTS(SELECT 1 FROM studenttable WHERE enrollment_no = %s);",
-                (enroll_no,)
-            )
+            cursor.execute(f"""-- sql
+                select exists(
+                    select 1 from studenttable where enrollment_no = '{enroll_no}'
+                );
+            """)
             result = cursor.fetchone()
             return result[0] == 1
     finally:
@@ -61,12 +62,47 @@ def enter_student_info(name, course, start_batch, end_batch, semester, enroll_no
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            cursor.execute("""
-                INSERT INTO studenttable
+            cursor.execute(f"""-- sql
+                insert into studenttable
                 (enrollment_no, name, course, start_batch, end_batch, sem, rollno, exam, father, mother)
-                VALUES
-                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-            """, (enroll_no, name, course, start_batch, end_batch, semester, rollno, exam, father, mother))
+                values
+                ('{enroll_no}', '{name}', '{course}', '{start_batch}', '{end_batch}', '{semester}', '{rollno}', '{exam}', '{father}', '{mother}');
+            """)
         connection.commit()
+    finally:
+        connection.close()
+
+def view_courses(enroll_no):
+    """To view that particular course only as enroll_no is unique"""
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"""-- sql
+                select * from studenttable where enrollment_no = '{enroll_no}';
+            """)
+            result = cursor.fetchall()
+            '''
+            By default in Python, cursor.fetchall() returns a list of tuples, where each tuple represents one database row:
+            eg:
+            [
+                (1, 'DE1234567', 'Joyobrata Das', 'ds', '2026', '2028', '1', 'DS7B-8978', '2026-11-01', 'Father Name', 'Mother Name', '2026-11-07 05:00:00')
+            ]
+            '''
+            return result
+    finally:
+        connection.close()
+
+
+def course_table(table_name):
+    """To view the course details basically """
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"""-- sql
+                select * from {table_name};
+            """)
+            result = cursor.fetchall()
+           
+            return result
     finally:
         connection.close()
